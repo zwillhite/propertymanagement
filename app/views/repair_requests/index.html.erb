@@ -1,4 +1,4 @@
-<h1>Listing repair_requests</h1>
+<h1>Repair Requests</h1>
 
 <table>
   <tr>
@@ -6,8 +6,6 @@
     <th>Close date</th>
     <th>Request details</th>
     <th>Request response</th>
-    <th>Submitter</th>
-    <th>Responder</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,8 +17,6 @@
     <td><%= repair_request.close_date %></td>
     <td><%= repair_request.request_details %></td>
     <td><%= repair_request.request_response %></td>
-    <td><%= repair_request.submitter_id %></td>
-    <td><%= repair_request.responder_id %></td>
     <td><%= link_to 'Show', repair_request %></td>
     <td><%= link_to 'Edit', edit_repair_request_path(repair_request) %></td>
     <td><%= link_to 'Destroy', repair_request, confirm: 'Are you sure?', method: :delete %></td>

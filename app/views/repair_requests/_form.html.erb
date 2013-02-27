@@ -13,27 +13,35 @@
 
   <div class="field">
     <%= f.label :open_date %><br />
+    <% if current_user && current_user.has_role?(:manager) %>
+    <%= @repair_request.open_date %><br />
+    <% else %>
     <%= f.date_select :open_date %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :close_date %><br />
+    <% if current_user && current_user.has_role?(:manager) %>
     <%= f.date_select :close_date %>
+    <% else %>
+    <%= @repair_request.close_date %><br />
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :request_details %><br />
+    <% if current_user && current_user.has_role?(:manager) %>
+    <%= @repair_request.request_details %><br />
+    <% else %>
     <%= f.text_area :request_details %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :request_response %><br />
+    <% if current_user && current_user.has_role?(:manager) %>
     <%= f.text_area :request_response %>
-  </div>
-  <div class="field">
-    <%= f.label :submitter_id %><br />
-    <%= f.number_field :submitter_id %>
-  </div>
-  <div class="field">
-    <%= f.label :responder_id %><br />
-    <%= f.number_field :responder_id %>
+    <% else %>
+    <%= @repair_request.request_response %><br />
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

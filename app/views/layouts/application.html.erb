@@ -12,9 +12,20 @@
 			<a href="<%= root_url %>">Property Management</a>
 		</div>
 		<div class="navigation">
+			<ul>
+				<li><a href="<%= root_url %>">Home</a></li>
+				<li><% if current_user %>
+						<%= link_to "Repair Requests", repair_requests_path %>
+					<% end %>
+				</li>
+				<li><% if current_user %>
+						<%= link_to "Leases", leases_path %>
+					<% end %>
+				</li>
+			</ul>
 			<div style="float: right; height: 27px; line-height: 27px; padding-right: 5px;">
 				<% if current_user %>
-					<%= link_to "Edit Profile", edit_user_path(:current) %>
+					<%= link_to "Edit Profile", edit_user_path(current_user.id) %>
 					<%= link_to "Logout", logout_path %>
 				<% else %>				
 			        <%= link_to "Register", new_user_path %>
